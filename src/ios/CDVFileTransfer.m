@@ -104,10 +104,11 @@ static CFIndex WriteDataToStream(NSData* data, CFWriteStreamRef stream)
 {
     [req setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
 
-    NSString* userAgent = [self.commandDelegate userAgent];
-    if (userAgent) {
-        [req setValue:userAgent forHTTPHeaderField:@"User-Agent"];
-    }
+    // Comment out this one for Cordova iOS 6 update
+    // NSString* userAgent = [self.commandDelegate userAgent];
+    // if (userAgent) {
+    //     [req setValue:userAgent forHTTPHeaderField:@"User-Agent"];
+    // }
 
     for (NSString* headerName in headers) {
         id value = [headers objectForKey:headerName];
